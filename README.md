@@ -29,7 +29,7 @@ O FreshBite busca resolver esse problema utilizando dados que **já são produzi
 
 ## A Solução com IA
 
-O FreshBite é um sistema de análise inteligente que recebe dados operacionais relacionados aos pedidos e processos da empresa por meio de uma API.
+A FoodPoint é um sistema de análise inteligente que recebe dados operacionais relacionados aos pedidos e processos da empresa por meio de uma API.
 
 A aplicação analisa informações como:
 
