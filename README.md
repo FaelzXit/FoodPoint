@@ -5,7 +5,7 @@ Projeto acadêmico desenvolvido para a disciplina de Análise e Desenvolvimento 
 
 ### ODS 9 — Indústria, Inovação e Infraestrutura
 
-O projeto FreshBite está relacionado à **ODS 9**, que busca promover infraestrutura resiliente, industrialização sustentável e inovação.
+O projeto FoodPoint está relacionado à **ODS 9**, que busca promover infraestrutura resiliente, industrialização sustentável e inovação.
 
 A escolha da ODS 9 ocorre porque o projeto utiliza **tecnologia, análise de dados e Inteligência Artificial** para melhorar processos operacionais de empresas do setor de alimentação.
 
