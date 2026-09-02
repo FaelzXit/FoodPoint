@@ -1,0 +1,130 @@
+classDiagram
+direction TB
+    class APIService {
+	    -String endpoint
+	    +receberPedidos()
+	    +obterDados()
+    }
+
+    class Pedido {
+	    -int id
+	    -String numero
+	    -Date dataHora
+	    -String status
+	    -float tempoTotal
+	    +criarPedido()
+	    +alterarStatus()
+	    +finalizarPedido()
+	    +calcularTempoTotal()
+    }
+
+    class Etapa {
+	    -int id
+	    -String nome
+	    -Date inicio
+	    -Date fim
+	    -float duracao
+	    -float mediaReferencia
+	    +iniciarCronometro()
+	    +finalizarCronometro()
+	    +calcularDuracao()
+    }
+
+    class Ocorrencia {
+	    -int id
+	    -String tipo
+	    -String descricao
+	    -Date dataHora
+	    +registrar()
+    }
+
+    class Demanda {
+	    -int id
+	    -Date periodo
+	    -int quantidadePedidos
+	    -int mediaHistorica
+	    -boolean altaDemanda
+	    +calcularMedia()
+	    +identificarAltaDemanda()
+    }
+
+    class InteligenciaArtificial {
+	    -int id
+	    -Date dataAnalise
+	    -String resultado
+	    -String possiveisCausas
+	    -String recomendacoes
+	    +analisarDados()
+	    +identificarDesvios()
+	    +identificarPadroes()
+	    +identificarGargalos()
+	    +analisarDemanda()
+	    +gerarRecomendacoes()
+    }
+
+    class Analise {
+	    -int id
+	    -float desvio
+	    -boolean impactouTempoTotal
+	    -boolean recorrente
+	    -String classificacao
+	    +calcularDesvio()
+	    +verificarImpacto()
+	    +verificarRecorrencia()
+	    +classificar()
+    }
+
+    class Gargalo {
+	    -int id
+	    -String etapa
+	    -float tempoMedio
+	    -float desvio
+	    -boolean recorrente
+	    +identificar()
+	    +verificarRecorrencia()
+    }
+
+    class Indicador {
+	    -int id
+	    -String nome
+	    -float valorAtual
+	    -float valorMedio
+	    -float variacao
+	    +calcularMedia()
+	    +calcularVariacao()
+    }
+
+    class Relatorio {
+	    -int id
+	    -String periodo
+	    -int quantidadePedidos
+	    -float tempoMedioTotal
+	    +gerar()
+	    +consolidarDados()
+    }
+
+    class Gestor {
+	    -int id
+	    -String nome
+	    -String email
+	    +visualizarRelatorio()
+	    +consultarIndicadores()
+	    +consultarAnalise()
+	    +consultarRecomendacoes()
+    }
+
+    APIService --> Pedido : fornece
+    Pedido "1" *-- "1..*" Etapa : possui
+    Pedido "1" --> "0..*" Ocorrencia : pode registrar
+    Pedido --> Demanda : pertence ao período
+    Pedido --> InteligenciaArtificial : envia dados
+    Etapa --> InteligenciaArtificial : fornece tempos
+    Ocorrencia --> InteligenciaArtificial : fornece informações
+    Demanda --> InteligenciaArtificial : fornece dados
+    InteligenciaArtificial --> Analise : realiza
+    InteligenciaArtificial --> Gargalo : identifica
+    InteligenciaArtificial --> Relatorio : gera
+    Relatorio --> Indicador : apresenta
+    Relatorio --> Gargalo : apresenta
+    Gestor --> Relatorio : consulta
+    Gestor --> InteligenciaArtificial
