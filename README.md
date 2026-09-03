@@ -23,7 +23,7 @@ Um dos problemas é que os dados gerados durante a operação nem sempre são an
 
 Além disso, criar uma nova etapa para que os funcionários registrem manualmente cada problema poderia aumentar a carga de trabalho.
 
-O FreshBite busca resolver esse problema utilizando dados que **já são produzidos pelos processos da empresa**, evitando a necessidade de criar uma nova rotina de registros.
+O FoodPoint busca resolver esse problema utilizando dados que **já são produzidos pelos processos da empresa**, evitando a necessidade de criar uma nova rotina de registros.
 
 ---
 
@@ -64,7 +64,7 @@ O diferencial é que o funcionário não precisa registrar manualmente que exist
 
 ## Público-Alvo
 
-O principal público-alvo do FreshBite são **gestores, administradores e responsáveis pela operação de empresas do setor de alimentação**, como restaurantes, lanchonetes e estabelecimentos que trabalham com grande volume de pedidos.
+O principal público-alvo do FoodPoint são **gestores, administradores e responsáveis pela operação de empresas do setor de alimentação**, como restaurantes, lanchonetes e estabelecimentos que trabalham com grande volume de pedidos.
 
 O sistema pode ser utilizado principalmente por gestores que precisam acompanhar o desempenho dos processos e identificar pontos que necessitam de melhorias.
 
