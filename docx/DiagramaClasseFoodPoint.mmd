@@ -122,7 +122,7 @@ direction TB
     Ocorrencia --> InteligenciaArtificial : fornece informações
     Demanda --> InteligenciaArtificial : fornece dados
     InteligenciaArtificial --> Analise : realiza
-    InteligenciaArtificial --> Gargalo : identifica
+    Analise --> Gargalo : identifica
     InteligenciaArtificial --> Relatorio : gera
     Relatorio --> Indicador : apresenta
     Relatorio --> Gargalo : apresenta
