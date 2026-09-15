@@ -1,4 +1,5 @@
 # FoodPoint
+
 Projeto acadêmico desenvolvido para a disciplina de Análise e Desenvolvimento de Sistemas, com foco na ODS 9 — Indústria, Inovação e Infraestrutura.
 
 ## ODS Escolhido
@@ -33,12 +34,12 @@ A FoodPoint é um sistema de análise inteligente que recebe dados operacionais 
 
 A aplicação analisa informações como:
 
-* Tempo de preparação dos pedidos;
-* Tempo de montagem;
-* Tempo entre etapas;
-* Volume de pedidos;
-* Horários de maior movimento;
-* Variações no tempo de atendimento.
+- Tempo de preparação dos pedidos;
+- Tempo de montagem;
+- Tempo entre etapas;
+- Volume de pedidos;
+- Horários de maior movimento;
+- Variações no tempo de atendimento.
 
 A partir desses dados, o sistema pode identificar padrões que indiquem possíveis gargalos.
 
@@ -68,7 +69,9 @@ O principal público-alvo do FoodPoint são **gestores, administradores e respon
 
 O sistema pode ser utilizado principalmente por gestores que precisam acompanhar o desempenho dos processos e identificar pontos que necessitam de melhorias.
 
-```
+### Fluxo do sistema
+
+```text
 Dados operacionais da empresa
             ↓
            API
@@ -86,4 +89,3 @@ Dados operacionais da empresa
         Dashboard
             ↓
           Gestor
-```
