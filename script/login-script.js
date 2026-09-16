@@ -98,7 +98,7 @@ formLogin.addEventListener("submit", (evento) => {
 
         mostrarToast("Login realizado. Redirecionando…");
         setTimeout(() => {
-            window.location.href = "index.html";
+            window.location.href = "page-principal.html";
         }, 700);
     }, 900);
 });
