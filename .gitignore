@@ -1,0 +1,13 @@
+# Configurações do VS Code
+.vscode/
+
+# Variáveis de ambiente
+.env
+.env.*
+
+# Dependências
+node_modules/
+
+# Arquivos do Windows/macOS
+Thumbs.db
+.DS_Store

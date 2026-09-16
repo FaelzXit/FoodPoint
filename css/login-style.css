@@ -1,0 +1,374 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+
+:root {
+    --background: #ffeee6;
+    --principal-color: #ffffff;
+    --primary-color: #ea5b1d;
+    --second-color: #e5e5e5;
+    --color-three: #ff6600;
+    --color-user: #333333;
+    --color-before-hover-bot: #918c8a;
+    --color-erro: #d32f2f;
+    --color-sucesso: #2e7d32;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+    background-color: var(--background);
+}
+
+#login-main {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 20px;
+}
+
+#login-card {
+    width: 100%;
+    max-width: 400px;
+    background-color: var(--principal-color);
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    padding: 40px 36px;
+}
+
+#logo {
+    display: block;
+    color: var(--primary-color);
+    font-size: 24px;
+    font-weight: 700;
+    text-decoration: none;
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+/* ===== TABS ===== */
+
+#tabs {
+    display: flex;
+    background-color: var(--background);
+    border-radius: 999px;
+    padding: 4px;
+    margin-bottom: 24px;
+}
+
+.tab-btn {
+    flex: 1;
+    border: none;
+    background: transparent;
+    padding: 10px 0;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--color-user);
+    border-radius: 999px;
+    cursor: pointer;
+}
+
+.tab-btn.active {
+    background-color: var(--primary-color);
+    color: #ffffff;
+}
+
+/* ===== FORMULÁRIOS ===== */
+
+.auth-form {
+    display: none;
+}
+
+.auth-form.active {
+    display: block;
+}
+
+.form-subtitle {
+    font-size: 13.5px;
+    color: var(--color-before-hover-bot);
+    margin-bottom: 22px;
+}
+
+.campo {
+    margin-bottom: 18px;
+}
+
+.campo label {
+    display: block;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--color-user);
+    margin-bottom: 6px;
+}
+
+.campo input {
+    width: 100%;
+    padding: 12px 14px;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 14px;
+    color: var(--color-user);
+    border: 1.5px solid var(--second-color);
+    border-radius: 10px;
+    background-color: var(--principal-color);
+    outline: none;
+    transition: 0.2s ease;
+}
+
+.campo input:focus {
+    border-color: var(--primary-color);
+}
+
+.campo.campo-invalida input {
+    border-color: var(--color-erro);
+}
+
+.campo .erro {
+    display: none;
+    font-size: 12px;
+    color: var(--color-erro);
+    margin-top: 6px;
+}
+
+.campo.campo-invalida .erro {
+    display: block;
+}
+
+.campo-senha {
+    position: relative;
+}
+
+.campo-senha input {
+    padding-right: 42px;
+}
+
+.toggle-senha {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--color-before-hover-bot);
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.toggle-senha:hover {
+    color: var(--primary-color);
+}
+
+/* ===== OPÇÕES / LINKS ===== */
+
+#linha-opcoes {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: -4px 0 22px;
+    font-size: 12.5px;
+}
+
+#lembrar {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    color: var(--color-user);
+    cursor: pointer;
+}
+
+#lembrar input {
+    width: 15px;
+    height: 15px;
+    accent-color: var(--primary-color);
+    cursor: pointer;
+}
+
+.link-simples {
+    border: none;
+    background: none;
+    padding: 0;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--primary-color);
+    cursor: pointer;
+}
+
+.link-simples:hover {
+    text-decoration: underline;
+}
+
+/* ===== BOTÕES ===== */
+
+.botao-principal {
+    width: 100%;
+    padding: 13px 0;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--primary-color);
+    color: #ffffff;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-weight: 700;
+    font-size: 14.5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: 0.2s ease;
+}
+
+.botao-principal:hover {
+    background-color: var(--color-three);
+}
+
+.botao-principal:disabled {
+    opacity: 0.75;
+    cursor: default;
+}
+
+.botao-secundario {
+    padding: 11px 18px;
+    background: transparent;
+    border: 1.5px solid var(--second-color);
+    border-radius: 10px;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-weight: 600;
+    font-size: 13.5px;
+    color: var(--color-user);
+    cursor: pointer;
+}
+
+.spinner {
+    display: none;
+}
+
+.botao-principal.carregando .spinner {
+    display: inline-block;
+}
+
+.botao-principal.carregando .texto-botao {
+    display: none;
+}
+
+/* ===== MODAL ESQUECI A SENHA ===== */
+
+dialog#modal-esqueci {
+    border: none;
+    width: 100%;
+    max-width: 380px;
+    border-radius: 20px;
+    padding: 0;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+dialog#modal-esqueci::backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-conteudo {
+    padding: 32px 30px;
+}
+
+.icone-modal {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background-color: var(--primary-color);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    margin-bottom: 16px;
+}
+
+.modal-conteudo h2 {
+    font-size: 20px;
+    color: var(--color-user);
+    margin-bottom: 8px;
+}
+
+.modal-conteudo p {
+    font-size: 13.5px;
+    color: var(--color-before-hover-bot);
+    line-height: 1.55;
+    margin-bottom: 20px;
+}
+
+.modal-botoes {
+    display: flex;
+    gap: 10px;
+    margin-top: 22px;
+}
+
+.modal-botoes .botao-principal {
+    flex: 1;
+}
+
+#esqueci-sucesso {
+    display: none;
+    text-align: center;
+}
+
+#esqueci-sucesso.mostrar {
+    display: block;
+}
+
+#esqueci-form-wrap.esconder {
+    display: none;
+}
+
+.icone-sucesso {
+    font-size: 46px;
+    color: var(--color-sucesso);
+    display: block;
+    margin: 0 auto 16px;
+}
+
+/* ===== TOAST ===== */
+
+#toast {
+    position: fixed;
+    top: 22px;
+    left: 50%;
+    transform: translateX(-50%) translateY(-140%);
+    background-color: var(--color-user);
+    color: #ffffff;
+    padding: 13px 22px;
+    border-radius: 999px;
+    font-size: 13.5px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+    z-index: 200;
+    transition: transform 0.35s ease;
+}
+
+#toast.mostrar {
+    transform: translateX(-50%) translateY(0);
+}
+
+#toast.erro i {
+    color: var(--color-erro);
+}
+
+#toast i {
+    color: var(--color-sucesso);
+}
+
+/* ===== RESPONSIVO ===== */
+
+@media (max-width: 480px) {
+    #login-card {
+        padding: 30px 22px;
+    }
+}

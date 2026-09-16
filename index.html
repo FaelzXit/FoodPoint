@@ -9,274 +9,151 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/login-style.css">
 
-    <script src="script/script.js" defer></script>
+    <script src="script/login-script.js" defer></script>
 
-    <title>FoodPoint</title>
+    <title>FoodPoint — Entrar</title>
 
 </head>
 
 <body>
 
-    <!-- MENU SUPERIOR -->
+    <main id="login-main">
 
-    <div id="navigation">
-
-        <nav id="tag-navigation">
+        <div id="login-card">
 
             <a id="logo" href="/index.html">
                 FOODPOINT
             </a>
 
-            <div id="user-area">
-
-                <i class="fa-solid fa-bell"></i>
-
-                <i class="fa-solid fa-user"></i>
-
+            <div id="tabs">
+                <button type="button" class="tab-btn active" id="tab-login">Entrar</button>
+                <button type="button" class="tab-btn" id="tab-signup">Criar conta</button>
             </div>
 
-        </nav>
+            <!-- LOGIN -->
+            <form id="form-login" class="auth-form active" novalidate>
 
-    </div>
+                <p class="form-subtitle">Entre com sua conta para acessar o painel.</p>
 
-
-    <!-- MENU LATERAL -->
-
-    <aside id="menu-lateral">
-
-        <nav id="navegação-lateral">
-
-            <ul id="lista">
-
-                <li class="itens-lista">
-                    <a href="#">
-                        <i class="fa-solid fa-chart-simple"></i>
-                    </a>
-                </li>
-
-                <li class="itens-lista">
-                    <a href="#">
-                        <i class="fa-regular fa-file-lines"></i>
-                    </a>
-                </li>
-
-                <li class="itens-lista">
-                    <a href="#">
-                        <i class="fa-solid fa-chart-line"></i>
-                    </a>
-                </li>
-
-                <li class="itens-lista">
-                    <a href="#">
-                        <i class="fa-regular fa-newspaper"></i>
-                    </a>
-                </li>
-
-            </ul>
-
-        </nav>
-
-    </aside>
-
-
-    <!-- CORPO PRINCIPAL -->
-
-    <main class="menu-main">
-
-        <!-- DASHBOARD HEADER -->
-        <div class="dash-header">
-            <p id="text-dash">Dashboard</p>
-
-            <div class="dash-cards">
-                <div class="dash-amount">
-                    <span id="txt-amount">Pedidos</span>
-                    <strong id="amount-orders">248</strong>
-                    <small>+10%</small>
+                <div class="campo" id="campo-login-email">
+                    <label for="login-email">E-mail</label>
+                    <input type="email" id="login-email" placeholder="voce@foodpoint.com" autocomplete="username">
+                    <small class="erro">Informe um e-mail válido.</small>
                 </div>
 
-                <div class="dash-avg">
-                    <span>Tempo Médio</span>
-                    <strong id="avg-time">31 min</strong>
-                    <small>-4,2%</small>
-                </div>
-
-                <div class="dash-desv">
-                    <span>Desvio</span>
-                    <strong id="desviations">18</strong>
-                    <small>+3</small>
-                </div>
-
-                <div class="dash-bot">
-                    <span>Gargalo</span>
-                    <strong id="bottlenecks">3</strong>
-                    <small>+1</small>
-                </div>
-            </div>
-        </div>
-
-
-        <!-- GRÁFICO -->
-
-        <section id="graphics">
-
-            <h1>
-                Tempo Médio por Etapa
-            </h1>
-
-
-            <div id="Separação">
-
-                <span>
-                    Separação
-                </span>
-
-                <div class="barra-grafico">
-
-                    <div class="barra-tempo">
-                        10 Min
+                <div class="campo" id="campo-login-senha">
+                    <label for="login-senha">Senha</label>
+                    <div class="campo-senha">
+                        <input type="password" id="login-senha" placeholder="••••••••" autocomplete="current-password">
+                        <i class="fa-regular fa-eye toggle-senha" data-target="login-senha"></i>
                     </div>
-
+                    <small class="erro">A senha precisa ter pelo menos 6 caracteres.</small>
                 </div>
-                
-            </div>
 
+                <div id="linha-opcoes">
+                    <label id="lembrar">
+                        <input type="checkbox" id="lembrar-check">
+                        Lembrar de mim
+                    </label>
+                    <button type="button" id="abrir-esqueci" class="link-simples">Esqueceu a senha?</button>
+                </div>
 
-            <div id="Preparo">
+                <button type="submit" class="botao-principal" id="btn-login">
+                    <i class="fa-solid fa-spinner fa-spin spinner"></i>
+                    <span class="texto-botao">Entrar</span>
+                </button>
 
-                <span>
-                    Preparo
-                </span>
+            </form>
 
-                <div class="barra-grafico">
+            <!-- CRIAR CONTA -->
+            <form id="form-signup" class="auth-form" novalidate>
 
-                    <div class="barra-tempo">
-                        35 min
+                <p class="form-subtitle">Crie sua conta para acessar o painel.</p>
+
+                <div class="campo" id="campo-signup-nome">
+                    <label for="signup-nome">Nome completo</label>
+                    <input type="text" id="signup-nome" placeholder="Seu nome" autocomplete="name">
+                    <small class="erro">Informe seu nome.</small>
+                </div>
+
+                <div class="campo" id="campo-signup-email">
+                    <label for="signup-email">E-mail</label>
+                    <input type="email" id="signup-email" placeholder="voce@foodpoint.com" autocomplete="email">
+                    <small class="erro">Informe um e-mail válido.</small>
+                </div>
+
+                <div class="campo" id="campo-signup-senha">
+                    <label for="signup-senha">Senha</label>
+                    <div class="campo-senha">
+                        <input type="password" id="signup-senha" placeholder="Crie uma senha" autocomplete="new-password">
+                        <i class="fa-regular fa-eye toggle-senha" data-target="signup-senha"></i>
                     </div>
-
+                    <small class="erro">Use ao menos 6 caracteres.</small>
                 </div>
 
-            </div>
-
-
-            <div id="Entrega">
-
-                <span>
-                    Entrega
-                </span>
-
-                <div class="barra-grafico">
-
-                    <div class="barra-tempo">
-                        3 Min
+                <div class="campo" id="campo-signup-confirma">
+                    <label for="signup-confirma">Confirmar senha</label>
+                    <div class="campo-senha">
+                        <input type="password" id="signup-confirma" placeholder="Repita a senha" autocomplete="new-password">
+                        <i class="fa-regular fa-eye toggle-senha" data-target="signup-confirma"></i>
                     </div>
-
+                    <small class="erro">As senhas não coincidem.</small>
                 </div>
 
-            </div>
+                <button type="submit" class="botao-principal" id="btn-signup">
+                    <i class="fa-solid fa-spinner fa-spin spinner"></i>
+                    <span class="texto-botao">Criar conta</span>
+                </button>
 
-        </section>
-
-
-        <!-- TABELA -->
-
-        <div class="table-container">
-
-            <table>
-
-                <tr id="table-title">
-
-                    <th class="titles">
-                        Pedido
-                    </th>
-
-                    <th class="titles">
-                        Status
-                    </th>
-
-                    <th class="titles">
-                        Tempo
-                    </th>
-
-                    <th class="titles">
-                        Situação
-                    </th>
-
-                </tr>
-
-
-                <tr>
-
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-
-                </tr>
-
-
-                <tr>
-
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-
-                </tr>
-
-
-                <tr>
-
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-
-                </tr>
-
-            </table>
+            </form>
 
         </div>
-
-        <div id="button-flutuante-bot">
-            <i class="fa-brands fa-bots"></i>
-        </div>
-
-        <dialog id="modal">
-            <div class="modal-content">
-
-                <h1 id="colorwhite-h1">Suas informações simplificadas em um só lugar</h1>
-                
-                <div id="sugestões">
-                <span>Ache problemas</span>
-                    <span>Indentifique gargalos</span>
-                    <span>Encontre melhorias</span>
-                    <span>Gere um relatório agora mesmo</span>   
-                </div>
-                <p>TEXTO IA: What is Lorem Ipsum?
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at St Bride Printing Library in London, took a 1914 Cicero translation and scrambled it to make dummy text for Letraset's Body Type sheets. It has survived not only many decades, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised thanks to these sheets and more recently with desktop publishing software like Aldus PageMaker and Microsoft Word including versions of Lorem Ipsum.
-
-Why do we use it?
-It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
-
-
-Where does it come from?
-Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
-
-The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.
-
-Where can I get some?
-There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</p>
-
-                <div id="botões">
-                    <button type="button" class="button-report"> Gerar relatório</button>
-                    <button id="fechar"></button>
-                </div>
-            </div>
-        </dialog>
 
     </main>
+
+    <!-- MODAL ESQUECI A SENHA -->
+    <dialog id="modal-esqueci">
+        <div class="modal-conteudo">
+
+            <div id="esqueci-form-wrap">
+                <i class="fa-regular fa-envelope icone-modal"></i>
+                <h2>Recuperar senha</h2>
+                <p>Informe o e-mail da sua conta. Vamos enviar um link para você criar uma nova senha.</p>
+
+                <div class="campo" id="campo-esqueci-email">
+                    <label for="esqueci-email">E-mail</label>
+                    <input type="email" id="esqueci-email" placeholder="voce@foodpoint.com">
+                    <small class="erro">Informe um e-mail válido.</small>
+                </div>
+
+                <div class="modal-botoes">
+                    <button type="button" id="fechar-esqueci" class="botao-secundario">Cancelar</button>
+                    <button type="button" id="enviar-esqueci" class="botao-principal">
+                        <i class="fa-solid fa-spinner fa-spin spinner"></i>
+                        <span class="texto-botao">Enviar link</span>
+                    </button>
+                </div>
+            </div>
+
+            <div id="esqueci-sucesso">
+                <i class="fa-regular fa-circle-check icone-sucesso"></i>
+                <h2>Link enviado</h2>
+                <p>Verifique sua caixa de entrada para redefinir a senha.</p>
+                <button type="button" id="fechar-esqueci-sucesso" class="botao-principal">
+                    <span class="texto-botao">Voltar ao login</span>
+                </button>
+            </div>
+
+        </div>
+    </dialog>
+
+    <!-- TOAST -->
+    <div id="toast">
+        <i class="fa-solid fa-circle-check"></i>
+        <span id="toast-texto">Mensagem</span>
+    </div>
 
 </body>
 
