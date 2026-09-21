@@ -67,7 +67,7 @@ document.querySelectorAll(".toggle-senha").forEach((icone) => {
 
 // ===================== LOGIN =====================
 
-formLogin.addEventListener("submit", (evento) => {
+formLogin.addEventListener("submit", async (evento) => {
     evento.preventDefault();
 
     const email = $("login-email").value;
@@ -87,25 +87,29 @@ formLogin.addEventListener("submit", (evento) => {
     const botao = $("btn-login");
     definirCarregando(botao, true);
 
-    // Aqui entra a chamada real de autenticação (fetch/API).
-    // Ao confirmar o login, o usuário é levado para o dashboard (index.html).
-    setTimeout(() => {
+    try {
+        await FoodPoint.entrar(email, senha);
+        // "Lembrar de mim" preenche apenas o e-mail, como no projeto original.
+        try {
+            if ($("lembrar-check").checked) {
+                localStorage.setItem("foodpoint_email", email.trim().toLowerCase());
+            } else {
+                localStorage.removeItem("foodpoint_email");
+            }
+        } catch (_) { /* Login continua mesmo com armazenamento desativado. */ }
+        window.location.assign("page-principal.html");
+    } catch (erro) {
+        mostrarToast(["SecurityError", "QuotaExceededError"].includes(erro.name)
+            ? "Não foi possível salvar neste navegador. Confira as permissões e o espaço disponível."
+            : erro.message, true);
+    } finally {
         definirCarregando(botao, false);
-
-        if ($("lembrar-check").checked) {
-            localStorage.setItem("foodpoint_email", email);
-        }
-
-        mostrarToast("Login realizado. Redirecionando…");
-        setTimeout(() => {
-            window.location.href = "page-principal.html";
-        }, 700);
-    }, 900);
+    }
 });
 
 // ===================== CRIAR CONTA =====================
 
-formSignup.addEventListener("submit", (evento) => {
+formSignup.addEventListener("submit", async (evento) => {
     evento.preventDefault();
 
     const nome = $("signup-nome").value.trim();
@@ -131,13 +135,20 @@ formSignup.addEventListener("submit", (evento) => {
     const botao = $("btn-signup");
     definirCarregando(botao, true);
 
-    // Aqui entra a chamada real de cadastro (fetch/API).
-    setTimeout(() => {
-        definirCarregando(botao, false);
+    try {
+        await FoodPoint.cadastrar(nome, email, senha);
         mostrarToast("Conta criada com sucesso. Faça login para continuar.");
         formSignup.reset();
+        $("login-email").value = email.trim().toLowerCase();
+        $("login-senha").value = "";
         ativarAba("login");
-    }, 1000);
+    } catch (erro) {
+        mostrarToast(["SecurityError", "QuotaExceededError"].includes(erro.name)
+            ? "Não foi possível salvar neste navegador. Confira as permissões e o espaço disponível."
+            : erro.message, true);
+    } finally {
+        definirCarregando(botao, false);
+    }
 });
 
 // ===================== ESQUECI A SENHA (modal) =====================
@@ -168,23 +179,17 @@ $("enviar-esqueci").addEventListener("click", () => {
     marcarErro("campo-esqueci-email", !emailOk);
     if (!emailOk) return;
 
-    const botao = $("enviar-esqueci");
-    definirCarregando(botao, true);
-
-    // Aqui entra o envio real do e-mail de recuperação (fetch/API).
-    setTimeout(() => {
-        definirCarregando(botao, false);
-        esqueciFormWrap.classList.add("esconder");
-        esqueciSucesso.classList.add("mostrar");
-    }, 900);
+    mostrarToast("A recuperação por e-mail ainda não está disponível.", true);
 });
 
 // ===================== INICIALIZAÇÃO =====================
 
 limparErroAoDigitar();
 
-const emailLembrado = localStorage.getItem("foodpoint_email");
-if (emailLembrado) {
-    $("login-email").value = emailLembrado;
-    $("lembrar-check").checked = true;
-}
+try {
+    const emailLembrado = localStorage.getItem("foodpoint_email");
+    if (emailLembrado) {
+        $("login-email").value = emailLembrado;
+        $("lembrar-check").checked = true;
+    }
+} catch (_) { /* O preenchimento do e-mail é opcional. */ }
