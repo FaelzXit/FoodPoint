@@ -89,3 +89,32 @@ Dados operacionais da empresa
         Dashboard
             ↓
           Gestor
+```
+
+## Integração atual: FoodPoint e IA via OpenRouter
+
+O aplicativo FoodPoint e a IA desenvolvida pelo autor usando a API OpenRouter foram conectados nesta etapa. Com o apoio do Codex, a interface do aplicativo foi ligada a um backend local que consulta a IA e envia a resposta ao modal.
+
+### Como funciona
+
+1. O botão flutuante abre o modal da IA no painel.
+2. O aplicativo envia a solicitação para o backend Flask (`app.py`).
+3. O backend usa `ia.py` para chamar a API de conversas do OpenRouter.
+4. A resposta é transmitida em fluxo e exibida no modal, com formatação de títulos, **negrito**, *itálico*, listas, citações e código.
+
+O modelo configurado para esta integração é `nvidia/nemotron-3-ultra-550b-a55b:free`, selecionado pelo OpenRouter. A chave da API fica somente no backend, no arquivo local `.env/chave.env`; ela não deve ser publicada nem inserida no JavaScript.
+
+### Executar localmente
+
+Na pasta `FoodPoint`, instale as dependências e inicie o servidor:
+
+```powershell
+python -m pip install Flask requests python-dotenv
+python app.py
+```
+
+Configure `OPENROUTER_API_KEY` no arquivo `.env/chave.env` e abra <http://127.0.0.1:5001>. Entre no painel e clique em **Gerar relatório** dentro do modal.
+
+### Etapa atual e próximos passos
+
+O botão ainda envia uma pergunta de demonstração. A integração com os pedidos registrados pela PO ainda não foi feita. Na próxima etapa, os dados dos pedidos deverão chegar ao FoodPoint para que a IA identifique onde ocorreu o gargalo, recomende como amenizá-lo e, depois, gere um relatório sobre os pedidos afetados.
