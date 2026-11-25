@@ -1,0 +1,142 @@
+
+<mxfile host="app.diagrams.net" version="24.7.17">
+  <diagram name="C4 - Contêineres FoodPoint">
+    <mxGraphModel dx="1600" dy="900" grid="1" gridSize="10"
+      guides="1" tooltips="1" connect="1" arrows="1"
+      fold="1" page="1" pageScale="1"
+      pageWidth="2000" pageHeight="750"
+      math="0" shadow="0">
+
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- Sistema FoodPoint -->
+        <mxCell id="sistema" value="FoodPoint — Sistema&#xa;Sistema de registro de pedidos e análise de dados operacionais"
+          style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFB366;strokeColor=#B45F06;fontSize=20;fontFamily=Georgia;verticalAlign=top;spacingTop=15;"
+          vertex="1" parent="1">
+          <mxGeometry x="210" y="25" width="1430" height="530" as="geometry"/>
+        </mxCell>
+
+        <!-- Atendente -->
+        <mxCell id="atendente" value="&lt;b&gt;Atendente&lt;/b&gt;&#xa;&#xa;Registra pedidos,&#xa;adiciona produtos e&#xa;avança as etapas"
+          style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FF8000;strokeColor=#B45F06;fontSize=14;"
+          vertex="1" parent="1">
+          <mxGeometry x="20" y="115" width="145" height="130" as="geometry"/>
+        </mxCell>
+
+        <!-- POO -->
+        <mxCell id="poo" value="&lt;b&gt;POO-FoodPoint&lt;/b&gt;&#xa;&#xa;Aplicação Web&#xa;Python / Flask&#xa;HTML, CSS e JavaScript&#xa;Tela de registro e&#xa;acompanhamento"
+          style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FF8000;strokeColor=#B45F06;fontSize=14;"
+          vertex="1" parent="1">
+          <mxGeometry x="270" y="115" width="215" height="130" as="geometry"/>
+        </mxCell>
+
+        <!-- Backend -->
+        <mxCell id="backend" value="&lt;b&gt;Backend&#xa;POO-FoodPoint&lt;/b&gt;&#xa;&#xa;Python / Flask&#xa;Valida pedidos, controla etapas e&#xa;processa ações do atendente"
+          style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FF8000;strokeColor=#B45F06;fontSize=14;"
+          vertex="1" parent="1">
+          <mxGeometry x="645" y="115" width="215" height="130" as="geometry"/>
+        </mxCell>
+
+        <!-- Integração -->
+        <mxCell id="integracao" value="&lt;b&gt;Integração com o Painel&lt;/b&gt;&#xa;&#xa;Envia total de pedidos e histórico&#xa;ao encerrar expediente&#xa;HTTP / JSON"
+          style="rounded=0;whiteSpace=wrap;html=1;fillColor=#A0522D;strokeColor=#A0522D;fontColor=#FFFFFF;fontSize=14;"
+          vertex="1" parent="1">
+          <mxGeometry x="1015" y="115" width="215" height="130" as="geometry"/>
+        </mxCell>
+
+        <!-- Banco -->
+        <mxCell id="banco" value="&lt;b&gt;Banco de Dados&lt;/b&gt;&#xa;&#xa;SQLite (foodpoint.db)&#xa;Pedidos, produtos, expediente e&#xa;histórico de tempos"
+          style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FF8000;strokeColor=#B45F06;fontSize=14;"
+          vertex="1" parent="1">
+          <mxGeometry x="645" y="345" width="215" height="130" as="geometry"/>
+        </mxCell>
+
+        <!-- API -->
+        <mxCell id="api" value="&lt;b&gt;API do Painel&lt;/b&gt;&#xa;&#xa;Flask&#xa;POST /api/expediente&#xa;Recebe dados operacionais"
+          style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FF8000;strokeColor=#B45F06;fontSize=14;"
+          vertex="1" parent="1">
+          <mxGeometry x="1015" y="345" width="215" height="130" as="geometry"/>
+        </mxCell>
+
+        <!-- App -->
+        <mxCell id="app" value="&lt;b&gt;App / Painel FoodPoint&lt;/b&gt;&#xa;&#xa;Consulta e analisa dados&#xa;operacionais"
+          style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FF8000;strokeColor=#B45F06;fontSize=14;"
+          vertex="1" parent="1">
+          <mxGeometry x="1385" y="345" width="215" height="130" as="geometry"/>
+        </mxCell>
+
+        <!-- Gerente -->
+        <mxCell id="gerente" value="&lt;b&gt;Gerente&lt;/b&gt;&#xa;&#xa;Consulta pedidos,&#xa;indicadores e tempos"
+          style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FF8000;strokeColor=#B45F06;fontSize=14;"
+          vertex="1" parent="1">
+          <mxGeometry x="20" y="345" width="145" height="130" as="geometry"/>
+        </mxCell>
+
+        <!-- OpenRouter -->
+        <mxCell id="openrouter" value="&lt;b&gt;OpenRouter API&lt;/b&gt;&#xa;&#xa;Sistema externo de IA&#xa;Gateway de modelos (Nemetron)&#xa;&#xa;Analisa dados operacionais,&#xa;identifica gargalos e sugere ações"
+          style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FF8000;strokeColor=#B45F06;fontSize=14;"
+          vertex="1" parent="1">
+          <mxGeometry x="1780" y="150" width="225" height="185" as="geometry"/>
+        </mxCell>
+
+        <!-- Conexões -->
+        <mxCell id="c1" value="Acesso HTTPS"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;strokeColor=#CCCCCC;fontSize=11;"
+          edge="1" parent="1" source="atendente" target="poo">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="c2" value="Ações / formulários HTTP"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#CCCCCC;fontSize=11;"
+          edge="1" parent="1" source="poo" target="backend">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="c3" value="Consulta / grava SQLite"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#CCCCCC;fontSize=11;"
+          edge="1" parent="1" source="backend" target="banco">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="c4" value="Finaliza expediente"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#CCCCCC;fontSize=11;"
+          edge="1" parent="1" source="backend" target="integracao">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="c5" value="HTTP / JSON"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#CCCCCC;fontSize=11;"
+          edge="1" parent="1" source="integracao" target="api">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="c6" value="Disponibiliza dados"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#CCCCCC;fontSize=11;"
+          edge="1" parent="1" source="api" target="app">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="c7" value="Acesso ao painel via HTTPS"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#CCCCCC;fontSize=11;"
+          edge="1" parent="1" source="gerente" target="app">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="c8" value="Envia dados para análise — HTTPS / JSON"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#CCCCCC;fontSize=11;"
+          edge="1" parent="1" source="integracao" target="openrouter">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="c9" value="Retorna análise e recomendações — HTTPS / JSON"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#CCCCCC;fontSize=11;"
+          edge="1" parent="1" source="openrouter" target="api">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
