@@ -1,0 +1,69 @@
+
+<mxfile host="app.diagrams.net">
+  <diagram name="C4 - Contexto FoodPoint">
+    <mxGraphModel dx="1400" dy="800" grid="1" gridSize="10"
+      page="1" pageWidth="1500" pageHeight="700">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="atendente"
+          value="&lt;b&gt;Atendente&lt;/b&gt;&lt;br&gt;Pessoa&lt;br&gt;&lt;br&gt;Cadastra e registra pedidos, adiciona produtos e avança as etapas."
+          style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FF8000;strokeColor=#B45F06;fontSize=16;"
+          vertex="1" parent="1">
+          <mxGeometry x="40" y="180" width="210" height="150" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="gerente"
+          value="&lt;b&gt;Gerente&lt;/b&gt;&lt;br&gt;Pessoa&lt;br&gt;&lt;br&gt;Acompanha pedidos, tempos, indicadores e análises operacionais."
+          style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FF8000;strokeColor=#B45F06;fontSize=16;"
+          vertex="1" parent="1">
+          <mxGeometry x="40" y="400" width="210" height="150" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="foodpoint"
+          value="&lt;b&gt;FoodPoint&lt;/b&gt;&lt;br&gt;Sistema de software&lt;br&gt;&lt;br&gt;Sistema web para registro e acompanhamento de pedidos, controle das etapas de produção e análise de dados operacionais de empresas do setor alimentício."
+          style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFB366;strokeColor=#B45F06;fontSize=18;fontFamily=Georgia;"
+          vertex="1" parent="1">
+          <mxGeometry x="390" y="160" width="510" height="360" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="openrouter"
+          value="&lt;b&gt;OpenRouter API&lt;/b&gt;&lt;br&gt;Sistema externo&lt;br&gt;&lt;br&gt;Gateway de modelos de inteligência artificial (Nemotron).&lt;br&gt;&lt;br&gt;Analisa dados operacionais, identifica gargalos e sugere ações."
+          style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FF8000;strokeColor=#B45F06;fontSize=16;"
+          vertex="1" parent="1">
+          <mxGeometry x="1080" y="250" width="270" height="210" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="rel1"
+          value="Registra e avança pedidos&#xa;HTTPS"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#808080;fontSize=13;"
+          edge="1" parent="1" source="atendente" target="foodpoint">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="rel2"
+          value="Consulta dashboard e indicadores&#xa;HTTPS"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#808080;fontSize=13;"
+          edge="1" parent="1" source="gerente" target="foodpoint">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="rel3"
+          value="Envia dados dos pedidos para análise&#xa;HTTPS / JSON"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#808080;fontSize=13;"
+          edge="1" parent="1" source="foodpoint" target="openrouter">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="rel4"
+          value="Retorna análise e recomendações&#xa;HTTPS / JSON"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#808080;fontSize=13;"
+          edge="1" parent="1" source="openrouter" target="foodpoint">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
